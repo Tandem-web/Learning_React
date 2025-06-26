@@ -3,7 +3,7 @@ import ToDoListButton from "./toDoListButton";
 import { TabContext } from "../tab/TabContext";
 
 function ToDoListFilter() {
-    const { tab, changeTab } = useContext(TabContext);
+    const { tab } = useContext(TabContext);
     return (
         <div className="todo-filter-container">
             <ToDoListButton type="text" text="Все" tabName="all" selected={tab == 'all' ? true : false} addClasses={['todo-filter-button']}/>

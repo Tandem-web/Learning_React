@@ -4,8 +4,8 @@ import ToDoListButton from "./toDoListButton";
 import { useMemo } from "react";
 import { filterTodos } from "../controllers/filterTodos";
 
-function ToDoList({todos, tab}) {
-    console.log(tab)
+function ToDoList({todos, tab, toggleTodo, deleteTodo}) {
+    console.log(todos)
     const visibleTodos = useMemo(
         () => filterTodos(todos, tab),
         [todos, tab]
@@ -22,8 +22,8 @@ function ToDoList({todos, tab}) {
                                 </div>
                                 <div className="todo-list-item-buttons">
                                     {todo.complete ? null
-                                    : (<ToDoListButton type="icon" icon={<FaCheck/>} addClasses={['check']}/>)}
-                                    <ToDoListButton type="icon" icon={<FaTrash/>} addClasses={['trash']}/>
+                                    : (<ToDoListButton type="icon" icon={<FaCheck/>} todoId={todo.id} toggleTodo={toggleTodo} addClasses={['check']}/>)}
+                                    <ToDoListButton type="icon" icon={<FaTrash/>} todoId={todo.id} deleteTodo={deleteTodo} addClasses={['trash']}/>
                                 </div>
                             </li>
                         ))

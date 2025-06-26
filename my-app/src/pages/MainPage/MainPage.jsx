@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonsWithCounter from "../../components/ButtonsWithCounter/ButtonsWithCounter";
 import LifeCycleClassComponent from "../../components/LifeCycleClassComponent/LifeCycleClassComponent";
 import LifeCycleFunctionComponent from "../../components/LifeCycleFunctionComponent/LifeCycleFunctionComponent";
 import ToDo from "../../components/TodoList/ToDo";
 import TabProvider from "../../components/TodoList/tab/TabProvider";
+import Modal from "../../components/Modal/Modal";
 
 const MainPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return(
         <>
             <div className="page-breadcrumbs">
@@ -34,12 +37,25 @@ const MainPage = () => {
                     <LifeCycleFunctionComponent/>
                 </div>
             </section>
-                        <section>
+            <section>
                 <div className="section-name">4. To-do List</div>
                 <div className="section-inner">
                     <TabProvider>
                         <ToDo/>
                     </TabProvider>      
+                </div>
+            </section>
+            <section>
+                <div className="section-name">5. Portals</div>
+                <div className="section-inner">
+                    <div className="portals-open-modal-button" onClick={()=>setIsModalOpen(true)}>Открыть модальное окно</div>
+                    <Modal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                    >
+                        <h2>Заголовок модального окна</h2>
+                        <p>Это содержимое модального окна</p>
+                    </Modal>
                 </div>
             </section>
         </>

@@ -10,7 +10,6 @@ export function createToDo () {
             }
         )
     }
-    console.log(toDos)
 
     return toDos
 }
