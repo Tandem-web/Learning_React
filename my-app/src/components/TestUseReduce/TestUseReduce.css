@@ -1,0 +1,56 @@
+.use-reduce-container{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+}
+.use-reduce-container *{
+    box-sizing: border-box;
+}
+
+.use-reduce-button{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8082EB;
+    border: 3px solid #8082EB;
+    min-width: 50px;
+}
+.use-reduce-button:first-child{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    margin-right: -3px;
+}
+.use-reduce-button:last-child{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    margin-left: -3px;
+}
+.use-reduce-button:hover{
+    background-color: transparent;
+}
+.use-reduce-button svg{
+    width: 20px;
+    height: 20px;
+}
+.use-reduce-input{
+    flex: 1;
+    height: 50px;
+    border: 3px solid #8082EB;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;; margin: 0; 
+}
+input[type="number"] {
+     -moz-appearance: textfield; 
+}

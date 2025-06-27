@@ -5,6 +5,8 @@ import LifeCycleFunctionComponent from "../../components/LifeCycleFunctionCompon
 import ToDo from "../../components/TodoList/ToDo";
 import TabProvider from "../../components/TodoList/tab/TabProvider";
 import Modal from "../../components/Modal/Modal";
+import TestUseReduce from "../../components/TestUseReduce/TestUseReduce";
+import TestUseCallback from "../../components/TestUseCallback/TestUseCallback";
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,6 +58,18 @@ const MainPage = () => {
                         <h2>Заголовок модального окна</h2>
                         <p>Это содержимое модального окна</p>
                     </Modal>
+                </div>
+            </section>
+            <section>
+                <div className="section-name">5. UseReduce</div>
+                <div className="section-inner">
+                    <TestUseReduce/>
+                </div>
+            </section>
+            <section>
+                <div className="section-name">6. UseCallback + React.memo</div>
+                <div className="section-inner">
+                    <TestUseCallback/>
                 </div>
             </section>
         </>
