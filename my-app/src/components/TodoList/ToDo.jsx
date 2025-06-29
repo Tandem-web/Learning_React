@@ -32,22 +32,26 @@ function ToDo() {
         if (!inputValue?.trim()) return;
 
         let todoNewItem = {
-            id: optimisticItems.length + 1,
+            id: optimisticTodos.length + 1,
             text: `${inputValue}`,
             complete: false
         }
-        startTransition(() => {
-            optimisticActions({ type: 'ADD', payload: todoNewItem })
+        optimisticActions({ type: 'ADD', payload: todoNewItem })
+
+        startTransition(async () => {
+            try {
+                await mockApiCall(2500)
+                startTransition(() => {
+                    setTodos(prev => [...prev, todoNewItem]);
+                })
+                
+            } catch (error) {
+                console.error('Ошибка при добавлении:', error);
+            }
         })
         
         
-        try {
-            await mockApiCall(2500)
-            setTodos(prev => [...prev, todoNewItem]);
 
-        } catch (error) {
-            console.error('Ошибка при добавлении:', error);
-        }
     }
 
     async function toggleTodo(id) {

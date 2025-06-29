@@ -6,10 +6,14 @@ const defaultTab = localStorage.getItem(LOCAL_STORAGE_TAB_KEY) || 'all';
 const TabProvider = ({children}) => {
     const [tab, setTab] = useState(defaultTab)
 
-    const defaultProps = useMemo(() => ({
+    // const defaultProps = useMemo(() => ({
+    //     tab: tab,
+    //     setTab: setTab 
+    // }), [tab])
+    const defaultProps = {
         tab: tab,
-        setTab: setTab 
-    }), [tab])
+        setTab: setTab
+    }
 
     const changeTab = (tabName) => {
         setTab(tabName);
