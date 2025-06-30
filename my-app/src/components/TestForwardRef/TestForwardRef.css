@@ -1,0 +1,35 @@
+.testForwardRev-container{
+    position: relative;
+    width: 900px;
+    margin: 0  auto;
+}
+.testForwardRev-container video{
+    width: 100%;
+}
+
+.videoPlayer-controls-container{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s;
+    z-index: 100000;
+    display: none;
+}
+
+.testForwardRev-container:hover .videoPlayer-controls-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.videoPlayer-controls-button{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: block;
+}
+.videoPlayer-controls-button svg{
+    width: 100%;
+    height: 100%;
+}

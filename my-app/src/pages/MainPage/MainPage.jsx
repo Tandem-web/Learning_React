@@ -7,6 +7,7 @@ import TabProvider from "../../components/TodoList/tab/TabProvider";
 import Modal from "../../components/Modal/Modal";
 import TestUseReduce from "../../components/TestUseReduce/TestUseReduce";
 import TestUseCallback from "../../components/TestUseCallback/TestUseCallback";
+import TestForwardRef from "../../components/TestForwardRef/TestForwardRef";
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,6 +71,12 @@ const MainPage = () => {
                 <div className="section-name">6. UseCallback + React.memo</div>
                 <div className="section-inner">
                     <TestUseCallback/>
+                </div>
+            </section>
+            <section>
+                <div className="section-name">6. UseRef + ForwardRef</div>
+                <div className="section-inner">
+                    <TestForwardRef/>
                 </div>
             </section>
         </>
