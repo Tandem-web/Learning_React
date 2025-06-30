@@ -56,27 +56,30 @@ function ToDo() {
 
     async function toggleTodo(id) {
         optimisticActions({ type: 'TOGGLE', payload: id })
-        try {
-            await mockApiCall(1000)
-            setTodos(prev => prev.map(todo => 
-                todo.id === id ? {...todo, complete: true} : todo
-            ))
-        } catch (error) {
-            console.error('Ошибка изменения:', error)
-        }
+        
+        startTransition(async () => {
+            try {
+                await mockApiCall(1000)
+                setTodos(prev => prev.map(todo => 
+                    todo.id === id ? {...todo, complete: true} : todo
+                ))
+            } catch (error) {
+                console.error('Ошибка изменения:', error)
+            }
+        })
     }
     async function deleteTodo(id) {
-        // Оптимистичное обновление - сразу удаляем
+
         optimisticActions({ type: 'DELETE', payload: id })
-        try {
-            // Имитация запроса к серверу
-            await mockApiCall(1000)
-            // Подтверждаем удаление в основном состоянии
-            setTodos(prev => prev.filter(todo => todo.id !== id))
-        } catch (error) {
-            console.error('Ошибка удаления:', error)
-            // При ошибке состояние автоматически вернётся к предыдущему
-        }
+        
+        startTransition(async () => {
+            try {
+                await mockApiCall(1000)
+                setTodos(prev => prev.filter(todo => todo.id !== id))
+            } catch (error) {
+                console.error('Ошибка удаления:', error)
+            }
+        })
     }
 
     // Имитация API
