@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import './styles/App.css'
 import HeaderSection from '../section/header/HeaderSection'
 
@@ -9,18 +8,22 @@ import AdditionalPageAsync from "../pages/AdditionalPage/AdditionalPage.asyc"
 import Loader from '../components/loader/loader';
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
       <div className='page'>
-        <HeaderSection/>
-        <Suspense fallback={<Loader/>}> 
-            <Routes>
-                <Route path={'/'} element={<MainPageAsync/>}/>
-                <Route path={'/additional'} element={<AdditionalPageAsync/>}/>
-            </Routes>
-        </Suspense>
+          <HeaderSection/>
+          <Routes>
+              <Route key="route-0" path={'/'} element={(
+                <Suspense fallback={<Loader/>}> 
+                  <MainPageAsync/>
+                </Suspense>
+              )}/>
+              <Route key="route-1" path={'/additional'} element={(
+                <Suspense fallback={<Loader/>}> 
+                  <AdditionalPageAsync/>
+                </Suspense>
+              )}/>
+          </Routes>
       </div>
 
     </>
