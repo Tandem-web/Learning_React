@@ -4,7 +4,7 @@ const AdditionalPageAsync = lazy (
     () => new Promise(res => {
         setTimeout(() => {
             res(import('./AdditionalPage'))
-        }, 2000);
+        }, 200);
     }) 
 )
 
